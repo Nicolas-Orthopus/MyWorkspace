@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<robot name ="Jaco">
+
+
+  <link name = "link_1">
+    <visual>
+      <geometry>
+        <cylinder length="0.1455" radius="0.1"/>
+      </geometry>
+    </visual>
+  </link>	
+
+     
+  <link name="link_2">
+    <visual>
+      <geometry>
+        <cylinder length="0.13" radius="0.1"/>
+      </geometry>
+      <origin xyz="0 0 0.1455"/>
+    </visual>
+  </link>
+
+     
+  <link name="link_3">
+    <visual>
+      <geometry>
+        <cylinder length="0.41" radius="0.1"/>
+      </geometry>
+      <origin xyz="0 0 0.2755"/>
+    </visual>
+  </link>
+
+     
+  <link name="link_4">
+    <visual>
+      <geometry>
+        <cylinder length="0.2073" radius="0.1"/>
+      </geometry>
+      <origin xyz="0.0098 0 0.6855"/>
+    </visual>
+  </link>
+
+     
+  <link name="link_5">
+    <visual>
+      <geometry>
+        <cylinder length="0.0741" radius="0.1"/>
+      </geometry>
+      <origin rpy ="0 -0.523599 0" xyz="0.0098 0 0.8928"/>
+    </visual>
+  </link>
+
+     
+  <link name="link_6">
+    <visual>
+      <geometry>
+        <cylinder length="0.0741" radius="0.1"/>
+      </geometry>
+      <origin rpy="0 -0.523599 0" xyz="-0.02725 0 0.956972"/>
+    </visual>
+  </link>
+
+     
+  <link name="effector">
+    <visual>
+      <geometry>
+        <cylinder length="0.16" radius="0.1"/>
+      </geometry>
+      <origin xyz="-0.0643 0 1.021144"/>
+    </visual>
+  </link>
+
+  <joint name="joint_1" type="revolute">
+    <axis xyz="0 0 1"/>
+    <limit effort ="10000000" lower="0" upper="6.28319" velocity="1000"/>
+    <origin rpy="0 0 0" xyz="0 0 0.1455" />
+    <parent link="link_1"/>
+    <child link="link_2"/>
+  </joint>
+
+  <joint name="joint_2" type="revolute">
+    <axis xyz="1 0 0"/>
+    <limit effort ="10000000" lower="0" upper="6.28319" velocity="1000"/>
+    <origin rpy="0 0 0" xyz="0 0 0.2755" />
+    <parent link="link_2"/>
+    <child link="link_3"/>
+  </joint>
+
+  <joint name="joint_3" type="revolute">
+    <axis xyz="1 0 0"/>
+    <limit effort ="10000000" lower="0" upper="6.28319" velocity="1000"/>
+    <origin rpy="0 0 0" xyz="0.0098 0 0.6855" />
+    <parent link="link_3"/>
+    <child link="link_4"/>
+  </joint>
+
+  <joint name="joint_4" type="revolute">
+    <axis xyz="0 0 1"/>
+    <limit effort ="10000000" lower="0" upper="6.28319" velocity="1000"/>
+    <origin rpy="0 0 0" xyz="0.0098 0 0.8928" />
+    <parent link="link_4"/>
+    <child link="link_5"/>
+  </joint>
+
+  <joint name="joint_5" type="revolute">
+    <axis xyz="0 0 1"/>
+    <limit effort ="10000000" lower="0" upper="6.28319" velocity="1000"/>
+    <origin rpy="0 1.0472 0" xyz="-0.02725 0 0.956972" />
+    <parent link="link_5"/>
+    <child link="link_6"/>
+  </joint>
+
+  <joint name="joint_6" type="revolute">
+    <axis xyz="0 0 1"/>
+    <limit effort ="10000000" lower="0" upper="6.28319" velocity="1000"/>
+    <origin rpy="0 0 0" xyz="-0.0643 0 1.021144" />
+    <parent link="link_6"/>
+    <child link="effector"/>
+  </joint>
+     
